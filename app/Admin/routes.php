@@ -13,6 +13,8 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('catalog', \App\Admin\Controllers\CatalogController::class);
-    $router->resource('country', \App\Admin\Controllers\CatalogController::class);
+    $router->resource('country', \App\Admin\Controllers\CountryController::class);
+    $router->resource('color', \App\Admin\Controllers\ColorController::class);
+    $router->resource('products', \App\Admin\Controllers\ProductController::class);
 
 });
