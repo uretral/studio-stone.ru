@@ -1,0 +1,64 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-jpDFPtOa.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/css/helpers/blank.gif": {
+    "file": "assets/blank-7MQTjzQB.gif",
+    "src": "resources/css/helpers/blank.gif"
+  },
+  "resources/css/helpers/fancybox_loading.gif": {
+    "file": "assets/fancybox_loading-kKIpTvYa.gif",
+    "src": "resources/css/helpers/fancybox_loading.gif"
+  },
+  "resources/css/helpers/fancybox_loading@2x.gif": {
+    "file": "assets/fancybox_loading@2x-WYCMp0N1.gif",
+    "src": "resources/css/helpers/fancybox_loading@2x.gif"
+  },
+  "resources/css/helpers/fancybox_overlay.png": {
+    "file": "assets/fancybox_overlay-Rnp27Zr6.png",
+    "src": "resources/css/helpers/fancybox_overlay.png"
+  },
+  "resources/css/helpers/fancybox_sprite.png": {
+    "file": "assets/fancybox_sprite-1QkK4GqD.png",
+    "src": "resources/css/helpers/fancybox_sprite.png"
+  },
+  "resources/css/helpers/fancybox_sprite@2x.png": {
+    "file": "assets/fancybox_sprite@2x-G6PqouHL.png",
+    "src": "resources/css/helpers/fancybox_sprite@2x.png"
+  },
+  "resources/images/arr.png": {
+    "file": "assets/arr-Z6NaQyRD.png",
+    "src": "resources/images/arr.png"
+  },
+  "resources/images/blank.gif": {
+    "file": "assets/blank-2iBaL8vb.gif",
+    "src": "resources/images/blank.gif"
+  },
+  "resources/images/loading_32.gif": {
+    "file": "assets/loading_32-35yHQUjp.gif",
+    "src": "resources/images/loading_32.gif"
+  },
+  "resources/images/loading_bg_32.png": {
+    "file": "assets/loading_bg_32--61Z0kps.png",
+    "src": "resources/images/loading_bg_32.png"
+  },
+  "resources/images/magnify-alt.png": {
+    "file": "assets/magnify-alt-vbFs6MfP.png",
+    "src": "resources/images/magnify-alt.png"
+  },
+  "resources/images/up-arrow.png": {
+    "file": "assets/up-arrow-VS2qxO3E.png",
+    "src": "resources/images/up-arrow.png"
+  },
+  "resources/images/zoom-bg.png": {
+    "file": "assets/zoom-bg--Mr-dmv5.png",
+    "src": "resources/images/zoom-bg.png"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-jdS83Fr6.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}
