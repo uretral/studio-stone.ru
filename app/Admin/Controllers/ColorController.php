@@ -6,11 +6,14 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
-use App\Models\Color as Model;
+use App\Models\Category as Model;
+use Encore\Admin\Traits\AdminBuilder;
+use Encore\Admin\Traits\ModelTree;
 use Illuminate\Support\Str;
 
 class ColorController extends AdminController
 {
+    use ModelTree, AdminBuilder;
     /**
      * Title for current resource.
      *

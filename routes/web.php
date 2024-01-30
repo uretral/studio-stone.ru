@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    dump(Category::orderBy('order','asc')->get()->toArray());
+//});
+
+foreach (Category::orderBy('order')->get() as $menu) {
+    Route::get($menu->slug.'/{slug?}', fn() => view($menu->view))->name($menu->view);
+}
+
+
+
+

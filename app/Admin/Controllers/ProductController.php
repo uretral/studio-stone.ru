@@ -2,6 +2,10 @@
 
 namespace App\Admin\Controllers;
 
+use App\Models\Catalog;
+use App\Models\Color;
+use App\Models\Country;
+use App\Models\Material;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -31,6 +35,7 @@ class ProductController extends AdminController
         $grid->column('sort', 'Сортировка')->sortable()->editable();
         $grid->column('slug', 'slug')->sortable()->editable();
         $grid->column('title', 'Заголовок')->sortable()->editable();
+        $grid->column('price', 'Цена')->sortable()->editable();
 
         return $grid;
     }
@@ -62,6 +67,20 @@ class ProductController extends AdminController
         $form = new Form(new Model);
 
         $form->display('id', __('ID'));
+        $form->switch('active','Активность')->default(1);
+        $form->number('sort','Сортировка')->default(500);
+        $form->text('slug','slug');
+        $form->text('title','Название');
+        $form->currency('price','Цена');
+        $form->number('views','Кол-во просмотров');
+        $form->select('parent_id','Каталог')->options(Catalog::pluck('title','id'));
+        $form->select('color_id','Цвет')->options(Color::pluck('title','id'));
+        $form->select('country_id','Страна')->options(Country::pluck('title','id'));
+        $form->select('material_id','Материал')->options(Material::pluck('title','id'));
+        $form->textarea('description','Описание');
+        $form->textarea('text','Описание полное');
+        $form->textarea('text','Описание полное');
+        $form->image('previewImage.path','Картинка (превью)')->move('products');
         $form->display('created_at', __('Created At'));
         $form->display('updated_at', __('Updated At'));
 
