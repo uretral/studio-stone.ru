@@ -5,7 +5,33 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite(['resources/css/app.css','resources/js/app.js'])
+{{--    @vite(['resources/css/app.css','resources/js/appTop.js'])--}}
+
+    <link href="{{ asset('assets/css/bootstrap.css') }}" type="text/css" data-template-style="true" rel="stylesheet">
+    <link href="{{ asset('assets/css/responsive.css') }}" type="text/css" data-template-style="true" rel="stylesheet">
+    <link href="{{ asset('assets/css/camera.css') }}" type="text/css" data-template-style="true" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" type="text/css" data-template-style="true" rel="stylesheet">
+    <link href="{{ asset('assets/css/flexslider.css') }}" type="text/css" data-template-style="true" rel="stylesheet">
+    <link href="{{ asset('assets/css/owl.carousel.css') }}" type="text/css" data-template-style="true" rel="stylesheet">
+    <link href="{{ asset('assets/css/owl.theme.css') }}" type="text/css" data-template-style="true" rel="stylesheet">
+    <link href="{{ asset('assets/css/font-awesome.css') }}" type="text/css" data-template-style="true" rel="stylesheet">
+    <link href="{{ asset('assets/css/cherry-plugin.css') }}" type="text/css" data-template-style="true" rel="stylesheet">
+    <link href="{{ asset('assets/css/styles.css') }}" type="text/css" data-template-style="true" rel="stylesheet">
+    <link href="{{ asset('assets/css/main-style.css') }}" type="text/css" data-template-style="true" rel="stylesheet">
+    <link href="{{ asset('assets/css/magnific-popup.css') }}" type="text/css" data-template-style="true" rel="stylesheet">
+    <link href="{{ asset('assets/css/jquery.fancybox.css') }}" type="text/css" data-template-style="true" rel="stylesheet">
+
+
+
+    <script type="text/javascript" src="{{ asset('assets/js/comment-reply.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/jquery-1.7.2.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/swfobject.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/modernizr.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/jflickrfeed.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/jquery.fancybox.pack.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/custom.js') }}"></script>
+
 
 {{--    <link rel="apple-touch-icon" sizes="180x180" href="{{ vite::asset('resources/img/favicon/apple-touch-icon.png')}}">--}}
 {{--    <link rel="icon" type="image/png" sizes="32x32" href="{{ vite::asset('resources/img/favicon/favicon-32x32.png')}}">--}}
@@ -112,7 +138,8 @@
     </div>
     <![endif]-->
     <!--[if (gt IE 9)|!(IE)]><!-->
-    <script type='text/javascript' src='/local/assets/js/jquery.mobile.customized.min.js'></script>
+
+    <script type="text/javascript" src="{{ asset('assets/js/jquery.mobile.customized.min.js') }}"></script>
 
     <script type="text/javascript">
         jQuery(function () {

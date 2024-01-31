@@ -17,5 +17,6 @@ Route::group([
     $router->resource('country', \App\Admin\Controllers\CountryController::class);
     $router->resource('color', \App\Admin\Controllers\ColorController::class);
     $router->resource('products', \App\Admin\Controllers\ProductController::class);
+    $router->resource('slider', \App\Admin\Controllers\TopSliderController::class);
 
 });

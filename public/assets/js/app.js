@@ -1,12 +1,3 @@
-import './comment-reply.min.js';
-import './jquery-1.7.2.min.js';
-import './swfobject.js';
-import './modernizr.js';
-import './jflickrfeed.js';
-import './bootstrap.min.js';
-import './jquery.fancybox.pack.js';
-import './custom.js';
-import './bootstrap.min.js';
 import './scripts.js';
 import './superfish.js';
 import './jquery.mobilemenu.js';
@@ -16,8 +7,11 @@ import './jquery.flexslider-min.js';
 import './jplayer.playlist.min.js';
 import './jquery.jplayer.min.js';
 import './camera.min.js';
-import './jquery.form.min.js';
+// import './jquery.form.min.js';
 import './jquery.debouncedresize.js';
 import './jquery.ba-resize.min.js';
 import './jquery.isotope.js';
 import './cherry-plugin.js';
+
+
+

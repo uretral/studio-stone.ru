@@ -6,10 +6,10 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
-use App\Models\Category as Model;
+use App\Models\TopSlider as Model;
 use Illuminate\Support\Str;
 
-class ColorController extends AdminController
+class TopSliderController extends AdminController
 {
     /**
      * Title for current resource.
@@ -30,7 +30,7 @@ class ColorController extends AdminController
         $grid->column('id', __('ID'))->sortable();
         $grid->column('active', 'Активность')->switch()->sortable();
         $grid->column('sort', 'Сортировка')->sortable()->editable();
-        $grid->column('slug', 'slug')->sortable()->editable();
+        $grid->column('link', 'Ссылка')->sortable()->editable();
         $grid->column('title', 'Заголовок')->sortable()->editable();
 
         return $grid;
@@ -65,16 +65,13 @@ class ColorController extends AdminController
         $form->display('id', __('ID'));
         $form->switch('active','Активность')->default(1);
         $form->number('sort','Сортировка')->default(500);
-        $form->text('slug','slug');
-        $form->text('title','Название');
+        $form->text('link','Ссылка');
+        $form->text('title','Заголовок');
+        $form->text('subtitle','Подзаголовок');
+        $form->text('text','Текст');
+        $form->image('image','Изображение');
         $form->display('created_at', __('Created At'));
         $form->display('updated_at', __('Updated At'));
-
-        $form->saving(function (Form $form){
-            $form->slug = Str::slug($form->title);
-        });
-
-
 
         return $form;
     }

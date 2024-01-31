@@ -11,7 +11,7 @@
     });
 
     $.fn.wpcf7InitForm = function() {
-        this.ajaxForm({
+/*        this.ajaxForm({
             beforeSubmit: function(arr, $form, options) {
                 $form.wpcf7ClearResponseOutput();
                 $form.find('[aria-invalid]').attr('aria-invalid', 'false');
@@ -31,7 +31,7 @@
                 var e = $('<div class="ajax-error"></div>').text(error.message);
                 $form.after(e);
             }
-        });
+        });*/
 
         if (_wpcf7.cached)
             this.wpcf7OnloadRefill();

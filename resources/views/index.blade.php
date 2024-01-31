@@ -10,5 +10,7 @@
 
 @section('main')
 
+    <x-top-slider/>
+
 
 @endsection
