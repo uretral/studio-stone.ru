@@ -39,7 +39,8 @@ a:focus { outline:none; }
     margin:0 auto;
     max-width:980px;
     width:auto;
-    background:#ffffff;
+    /*background:#ffffff;*/
+    background: #fafafa;
 }
 @media (min-width: 1200px) {
     .cherry-fixed-layout .main-holder { max-width:1210px; }

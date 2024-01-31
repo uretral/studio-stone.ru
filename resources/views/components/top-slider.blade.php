@@ -57,11 +57,9 @@
             @foreach($slides as $slide)
                 <div data-src='{{asset('storage/'.$slide->image)}}' data-link='{{$slide->link}}' data-thumb='{{asset('storage/'.$slide->image)}}'>
                     <div class="camera_caption">
-                        <div>
-                            <h2>{{$slide->title}}</h2>
-                            <h3>{{$slide->subtitle}}</h3>
-                            <h3>{{$slide->text}}</h3>
-                        </div>
+                        <h2>{{$slide->title}}</h2>
+                        <h3>{{$slide->subtitle}}</h3>
+                        <h3>{{$slide->text}}</h3>
                     </div>
                 </div>
             @endforeach
