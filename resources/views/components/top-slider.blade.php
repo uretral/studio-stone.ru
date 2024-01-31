@@ -55,7 +55,7 @@
 
         <div id="camera5a52228b2a9f3" class="camera_wrap camera">
             @foreach($slides as $slide)
-                <div data-src='{{$slide->image}}' data-link='{{$slide->link}}' data-thumb='{{$slide->image}}'>
+                <div data-src='{{asset('storage/'.$slide->image)}}' data-link='{{$slide->link}}' data-thumb='{{asset('storage/'.$slide->image)}}'>
                     <div class="camera_caption">
                         <div>
                             <h2>{{$slide->title}}</h2>
