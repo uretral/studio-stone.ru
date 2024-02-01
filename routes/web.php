@@ -14,14 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    dump(Category::orderBy('order','asc')->get()->toArray());
-//});
 
 foreach (Category::orderBy('order')->get() as $menu) {
-    Route::get($menu->slug.'/{slug?}', fn() => view($menu->view))->name($menu->view);
+
+/*    $meta = [
+        'bodyClass' => $menu->bodyClass,
+        'divClass' => $menu->divClass ,
+        'id' => $menu->pageId,
+        'title' => $menu->title,
+        'metaTitle' => $menu->metatitle,
+        'tags' => $menu->tags,
+        'description' => $menu->description,
+        'keywords' => $menu->keywords,
+    ];*/
+
+    Route::get($menu->slug,  fn() => view($menu->view, ['page' => $menu]))->name($menu->view);
 }
 
+Route::get('catalog/{slug}',  fn() => view('catalog-item'))->name('catalog-item');
+Route::get('catalog/{slug}/{id}',  fn() => view('product'))->name('product');
 
 
 

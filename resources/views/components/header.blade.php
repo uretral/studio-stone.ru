@@ -18,6 +18,7 @@
 
                                 @foreach($menu as $menuItem)
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page
+                                    {{request()->is($menuItem->slug.'*') ? 'current-menu-item  current_page_item' : ''}}
                                         @if($menuItem->view == 'catalog') menu-item-has-children @endif"
                                     >
                                         <a href="{{route($menuItem->view)}}" class="selected">{{$menuItem->title}}</a>

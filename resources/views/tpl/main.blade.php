@@ -43,9 +43,8 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="robots" content="index, follow">
-    <meta name="keywords" content="{{$keywords}}">
-    <meta name="keywords" content="{{$keywords}}">
-    <meta name="description" content="{{$description}}">
+    <meta name="keywords" content="{{$page->keywords}}">
+    <meta name="description" content="{{$page->description}}">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120737947-1"></script>
@@ -65,8 +64,6 @@
             CHILD_URL = 'https://livedemo00.template-help.com/wordpress_48469/wp-content/themes/theme48469',
             PARENT_URL = 'https://livedemo00.template-help.com/wordpress_48469/wp-content/themes/CherryFramework',
             CURRENT_THEME = 'theme48469'</script>
-
-
     <!--[if lt IE 8]>
     <div style=' clear: both; text-align:center; position: relative;'>
         <a href="https://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img
@@ -115,11 +112,12 @@
         })
     </script>
 
-    <title>{{ config('app.name') }}: {{$title}}</title>
+    <title>{{ config('app.name') }}: {{$page->metatitle}}</title>
 </head>
-<body @if($bodyClass) class="{{$bodyClass}}" @endif>
+<body class="{{$page->bodyClass}}">
 
-    <div @if($divClass) class="{{$divClass}}" @endif>
+
+    <div class="{{$page->divClass}}">
         <x-header/>
         @yield('main')
     </div>

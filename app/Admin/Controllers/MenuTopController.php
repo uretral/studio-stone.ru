@@ -64,18 +64,48 @@ class MenuTopController extends AdminController
     {
         $form = new Form(new Model);
 
-        $form->display('id', __('ID'));
-        $form->switch('active','Активность')->default(1);
-        $form->text('slug','slug');
-        $form->select('type','Участвует в меню')->options(Menu::pluck('title','id'));
-        $form->text('title','Название');
-        $form->text('pagetitle','Тайтл страницы');
-        $form->text('metatitle','meta title');
-        $form->textarea('tags','meta tags');
-        $form->textarea('description','meta description');
-        $form->textarea('keywords','meta keywords');
-        $form->display('created_at', __('Created At'));
-        $form->display('updated_at', __('Updated At'));
+
+        $form->tab('Настройки', function (Form $form) {
+            $form->display('id', __('ID'));
+            $form->switch('active','Активность')->default(1);
+            $form->text('slug','slug');
+            $form->select('type','Участвует в меню')->options(Menu::pluck('title','id'));
+            $form->text('title','Название');
+
+            $form->display('created_at', __('Created At'));
+            $form->display('updated_at', __('Updated At'));
+
+        });
+
+
+
+        $form->tab('Текстовые вставки', function (Form $form) {
+            switch (request()->segment(3)) {
+                case 1:
+                    $this->indexPage($form);
+                    break;
+                case 2:
+                    $this->catalogPage($form);
+                    break;
+
+
+            }
+        });
+
+        $form->tab('SEO', function (Form $form) {
+            $form->text('pagetitle','Тайтл страницы');
+            $form->text('metatitle','meta title');
+            $form->textarea('tags','meta tags');
+            $form->textarea('description','meta description');
+            $form->textarea('keywords','meta keywords');
+        });
+
+
+
+
+
+
+
 
 //        $form->saving(function (Form $form){
 //            $form->slug = Str::slug($form->title);
@@ -84,5 +114,29 @@ class MenuTopController extends AdminController
 
 
         return $form;
+    }
+
+    public function indexPage( $form) {
+      return  $form->embeds('composite','Текстовые вставки', function ( $form) {
+          $form->textarea('title');
+          $form->textarea('textLeft');
+          $form->textarea('textRight');
+          $form->textarea('textMore');
+          $form->textarea('catalogTitle');
+          $form->textarea('catalogAfterTitle');
+          $form->textarea('catalogAfterText');
+        });
+    }
+
+    public function catalogPage($form) {
+        return  $form->embeds('composite','Текстовые вставки', function ( $form) {
+
+            $form->textarea('title');
+            $form->textarea('textLeft');
+            $form->textarea('textRight');
+            $form->textarea('catalogTitle');
+            $form->textarea('catalogAfterTitle');
+            $form->textarea('catalogAfterText');
+        });
     }
 }

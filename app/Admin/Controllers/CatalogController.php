@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Models\Catalog;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -22,7 +23,7 @@ class CatalogController extends AdminController
      *
      * @return Grid
      */
-    protected function grid()
+    protected function grid(): Grid
     {
         $grid = new Grid(new Model);
 
@@ -41,7 +42,7 @@ class CatalogController extends AdminController
      * @param mixed $id
      * @return Show
      */
-    protected function detail($id)
+    protected function detail($id): Show
     {
         $show = new Show(Model::findOrFail($id));
 
@@ -57,11 +58,18 @@ class CatalogController extends AdminController
      *
      * @return Form
      */
-    protected function form()
+    protected function form(): Form
     {
         $form = new Form(new Model);
 
         $form->display('id', __('ID'));
+        $form->switch('active','Активность')->default(1);
+        $form->number('sort','Сортировка')->default(500);
+        $form->text('slug','slug');
+        $form->text('title','Название');
+        $form->image('image.path','Изображение')->move('catalog');
+        $form->hidden('image.model')->default(Catalog::class);
+        $form->hidden('image.type')->default('previewImage');
         $form->display('created_at', __('Created At'));
         $form->display('updated_at', __('Updated At'));
 
