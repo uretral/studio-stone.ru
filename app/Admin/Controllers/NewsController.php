@@ -6,10 +6,9 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
-use App\Models\TopSlider as Model;
-use Illuminate\Support\Str;
+use App\Models\News as Model;
 
-class TopSliderController extends AdminController
+class NewsController extends AdminController
 {
     /**
      * Title for current resource.
@@ -23,14 +22,14 @@ class TopSliderController extends AdminController
      *
      * @return Grid
      */
-    protected function grid()
+    protected function grid(): Grid
     {
         $grid = new Grid(new Model);
 
         $grid->column('id', __('ID'))->sortable();
         $grid->column('active', 'Активность')->switch()->sortable();
         $grid->column('sort', 'Сортировка')->sortable()->editable();
-        $grid->column('link', 'Ссылка')->sortable()->editable();
+        $grid->column('slug', 'slug')->sortable()->editable();
         $grid->column('title', 'Заголовок')->sortable()->editable();
 
         return $grid;
@@ -42,7 +41,7 @@ class TopSliderController extends AdminController
      * @param mixed $id
      * @return Show
      */
-    protected function detail($id)
+    protected function detail($id): Show
     {
         $show = new Show(Model::findOrFail($id));
 
@@ -58,7 +57,7 @@ class TopSliderController extends AdminController
      *
      * @return Form
      */
-    protected function form()
+    protected function form(): Form
     {
         $form = new Form(new Model);
 
@@ -67,16 +66,30 @@ class TopSliderController extends AdminController
                 $form->display('id', __('ID'));
                 $form->switch('active', 'Активность')->default(1);
                 $form->number('sort', 'Сортировка')->default(500);
-                $form->text('link', 'Ссылка');
-                $form->text('title', 'Заголовок');
-                $form->text('subtitle', 'Подзаголовок');
-                $form->text('text', 'Текст');
-                $form->image('image', 'Изображение');
+                $form->text('slug', 'slug');
+                $form->text('title', 'Название');
+                $form->textarea('description', 'Описание');
+                $form->textarea('text', 'Описание полное');
+                $form->image('previewImage.path', 'Картинка (превью)')->move('news');
+                $form->hidden('previewImage.model')->default(Model::class);
+                $form->hidden('previewImage.type')->default('preview');
+                $form->image('detailImage.path', 'Картинка (Основная)')->move('news');
+                $form->hidden('detailImage.model')->default(Model::class);
+                $form->hidden('detailImage.type')->default('detail');
                 $form->display('created_at', __('Created At'));
                 $form->display('updated_at', __('Updated At'));
             })
-;
+            ->tab('SEO', function (Form $form) {
+                $form->textarea('meta.title');
+                $form->textarea('meta.metatitle');
+                $form->textarea('meta.tags');
+                $form->textarea('meta.keywords');
+                $form->textarea('meta.description');
+                $form->hidden('meta.model')->default(Model::class);
+            });
 
         return $form;
     }
+
+
 }

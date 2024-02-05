@@ -15,24 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-foreach (Category::orderBy('order')->get() as $menu) {
-
-/*    $meta = [
-        'bodyClass' => $menu->bodyClass,
-        'divClass' => $menu->divClass ,
-        'id' => $menu->pageId,
-        'title' => $menu->title,
-        'metaTitle' => $menu->metatitle,
-        'tags' => $menu->tags,
-        'description' => $menu->description,
-        'keywords' => $menu->keywords,
-    ];*/
-
+foreach (Category::with('meta')->orderBy('order')->get() as $menu) {
     Route::get($menu->slug,  fn() => view($menu->view, ['page' => $menu]))->name($menu->view);
 }
 
-Route::get('catalog/{slug}',  fn() => view('catalog-item'))->name('catalog-item');
-Route::get('catalog/{slug}/{id}',  fn() => view('product'))->name('product');
+Route::get('catalog/{slug}/',  [\App\Http\Controllers\PageController::class,'catalog'])->name('catalog-item');
+Route::get('catalog/{slug}/{id}',  [\App\Http\Controllers\PageController::class,'product'])->name('product');
+
+Route::get('news/{slug}/',  [\App\Http\Controllers\PageController::class,'news'])->name('news-item');
 
 
 

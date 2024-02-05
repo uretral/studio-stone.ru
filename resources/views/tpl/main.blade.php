@@ -43,8 +43,8 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="robots" content="index, follow">
-    <meta name="keywords" content="{{$page->keywords}}">
-    <meta name="description" content="{{$page->description}}">
+    <meta name="keywords" content="{{@$page->meta->keywords}}">
+    <meta name="description" content="{{@$page->meta->description}}">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120737947-1"></script>
@@ -112,12 +112,12 @@
         })
     </script>
 
-    <title>{{ config('app.name') }}: {{$page->metatitle}}</title>
+    <title>{{ config('app.name') }}: {{@$page->meta->metatitle}}</title>
 </head>
-<body class="{{$page->bodyClass}}">
+<body class="{{@$page->bodyClass}}">
 
 
-    <div class="{{$page->divClass}}">
+    <div class="{{@$page->divClass}}">
         <x-header/>
         @yield('main')
     </div>

@@ -26,7 +26,7 @@ class ProductController extends AdminController
      *
      * @return Grid
      */
-    protected function grid()
+    protected function grid(): Grid
     {
         $grid = new Grid(new Model);
 
@@ -46,7 +46,7 @@ class ProductController extends AdminController
      * @param mixed $id
      * @return Show
      */
-    protected function detail($id)
+    protected function detail($id): Show
     {
         $show = new Show(Model::findOrFail($id));
 
@@ -62,27 +62,38 @@ class ProductController extends AdminController
      *
      * @return Form
      */
-    protected function form()
+    protected function form(): Form
     {
         $form = new Form(new Model);
 
-        $form->display('id', __('ID'));
-        $form->switch('active','Активность')->default(1);
-        $form->number('sort','Сортировка')->default(500);
-        $form->text('slug','slug');
-        $form->text('title','Название');
-        $form->currency('price','Цена');
-        $form->number('views','Кол-во просмотров');
-        $form->select('parent_id','Каталог')->options(Catalog::pluck('title','id'));
-        $form->select('color_id','Цвет')->options(Color::pluck('title','id'));
-        $form->select('country_id','Страна')->options(Country::pluck('title','id'));
-        $form->select('material_id','Материал')->options(Material::pluck('title','id'));
-        $form->textarea('description','Описание');
-        $form->textarea('text','Описание полное');
-        $form->textarea('text','Описание полное');
-        $form->image('previewImage.path','Картинка (превью)')->move('products');
-        $form->display('created_at', __('Created At'));
-        $form->display('updated_at', __('Updated At'));
+        $form
+            ->tab('Основа', function (Form $form) {
+                $form->display('id', __('ID'));
+                $form->switch('active', 'Активность')->default(1);
+                $form->number('sort', 'Сортировка')->default(500);
+                $form->text('slug', 'slug');
+                $form->text('title', 'Название');
+                $form->currency('price', 'Цена');
+                $form->number('views', 'Кол-во просмотров');
+                $form->select('parent_id', 'Каталог')->options(Catalog::pluck('title', 'id'));
+                $form->select('color_id', 'Цвет')->options(Color::pluck('title', 'id'));
+                $form->select('country_id', 'Страна')->options(Country::pluck('title', 'id'));
+                $form->select('material_id', 'Материал')->options(Material::pluck('title', 'id'));
+                $form->textarea('description', 'Описание');
+                $form->textarea('text', 'Описание полное');
+                $form->textarea('text', 'Описание полное');
+                $form->image('previewImage.path', 'Картинка (превью)')->move('products');
+                $form->display('created_at', __('Created At'));
+                $form->display('updated_at', __('Updated At'));
+            })
+            ->tab('SEO', function (Form $form) {
+                $form->textarea('meta.title');
+                $form->textarea('meta.metatitle');
+                $form->textarea('meta.tags');
+                $form->textarea('meta.keywords');
+                $form->textarea('meta.description');
+                $form->hidden('meta.model')->default(Model::class);
+            });
 
         return $form;
     }

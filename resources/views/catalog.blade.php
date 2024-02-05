@@ -135,7 +135,6 @@
 
                                 <x-catalog-catalog/>
 
-
                             </ul>
 
                         </div>
