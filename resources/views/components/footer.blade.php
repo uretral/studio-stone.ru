@@ -18,15 +18,15 @@
                 </div>
                 <div class="row copyright">
                     <div style="display: table; width: 100%;">
-                        <div class="span" style="display:table-cell; height: 100%; vertical-align: middle;">
+      {{--                  <div class="span" style="display:table-cell; height: 100%; vertical-align: middle;">
 								<span class="footer-text" style="vertical-align: inherit">
-									Наши партнеры <a target="_blank" href="http://www.internal.su/">
-										<img src="/local/assets/images/logo-ex.png" alt="logo" width="25%" style="vertical-align: middle; padding-left: 15px;">
+									Наши партнеры <a target="_blank"  href="http://www.internal.su/">
+										<img src="{{asset('assets/images/logo-ex.png')}}" alt="logo" width="25%" style="vertical-align: middle; padding-left: 15px;">
 									</a>
 
                                     <!-- {%FOOTER_LINK} -->
 								</span>
-                        </div>
+                        </div>--}}
                         <div class="span6" style="display:table-cell; height: 100%; vertical-align: middle;">
 
 								<span class="footer-text" style="vertical-align: inherit">
