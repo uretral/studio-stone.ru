@@ -17,7 +17,7 @@ class Product extends Model
     use HasFactory, HasMeta;
 
     protected $guarded = [];
-    protected $with = ['color', 'country', 'material', 'previewImage', 'detailImage', 'gallery', 'similar'/**/];
+    protected $with = ['color', 'country', 'material', 'previewImage', 'detailImage', 'gallery','section'];
 
     protected static function boot()
     {
@@ -67,6 +67,11 @@ class Product extends Model
         return $this->belongsTo(Catalog::class, 'parent_id', 'id');
     }
 
+    public function section(): HasOne
+    {
+        return $this->hasOne(Catalog::class,'id','parent_id');
+    }
+
     public function rate(): Attribute
     {
         $rate = Entity::where('name','rate')->first();
@@ -74,5 +79,7 @@ class Product extends Model
             get: fn() => (int)((float)$rate->value ?? 0) * ((int)$this->attributes['price'] ?? 0)
         );
     }
+
+
 
 }

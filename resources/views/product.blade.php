@@ -217,7 +217,8 @@
 
                                 </div>
 
-
+{{--@dump(route('product',['slug' => $page->section->slug, 'id' => $page->id]))--}}
+{{--                                @dump($page->similar)--}}
                                 <div class="row">
                                     <div class="span7">
                                         @if($page->similar->count())
@@ -227,14 +228,14 @@
                                                     @foreach($page->similar as $similar)
                                                         <li class="related-posts_item">
                                                             <figure class="thumbnail featured-thumbnail">
-                                                                <a href="{{route('index')}}"
+                                                                <a href="{{route('product',['slug' => $similar->section->slug,'id' => $similar->id])}}"
                                                                    title="{{@$similar->title}}">
                                                                     <img
                                                                         data-src="{{asset('storage/'.@$similar->previewImage->path)}}"
                                                                         alt="Slideshow Format"/>
                                                                 </a>
                                                             </figure>
-                                                            <a href="{{route('index')}}">
+                                                            <a href="{{route('product',['slug' => $similar->section->slug,'id' => $similar->id])}}">
                                                                 {{@$similar->title}}
                                                             </a>
                                                         </li>

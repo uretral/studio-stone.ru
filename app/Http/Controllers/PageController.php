@@ -23,8 +23,9 @@ class PageController extends Controller
     }
 
     public function product($slug,$id) {
+
         return view('product',[
-            'page' => Product::with(['meta','catalog'])->whereId($id)->first()
+            'page' => Product::with(['meta','catalog', 'similar'])->whereId($id)->first()
         ]);
     }
 
