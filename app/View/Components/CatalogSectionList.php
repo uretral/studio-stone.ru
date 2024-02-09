@@ -13,17 +13,17 @@ use Illuminate\View\Component;
 
 class CatalogSectionList extends Component
 {
-    public Catalog $catalog;
-    public LengthAwarePaginator $products;
+    public int $section;
+    public  $products;
     const PAGE = 'PAGEN_1';
 
     /**
      * Create a new component instance.
      */
-    public function __construct(Catalog $catalog)
+    public function __construct(int $section)
     {
-        $this->catalog = $catalog;
-        $this->products = Product::whereParentId($this->catalog->id)->paginate(
+        $this->section = $section;
+        $this->products = Product::whereParentId($this->section)->paginate(
             perPage: 16,
             page: request()->has(self::PAGE) && request(self::PAGE) > 1 ? request(self::PAGE) : 1
         );

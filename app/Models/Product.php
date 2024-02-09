@@ -17,7 +17,7 @@ class Product extends Model
     use HasFactory, HasMeta;
 
     protected $guarded = [];
-    protected $with = ['color', 'country', 'material', 'previewImage', 'detailImage', 'gallery', 'similar'];
+    protected $with = ['color', 'country', 'material', 'previewImage', 'detailImage', 'gallery', 'similar'/**/];
 
     protected static function boot()
     {

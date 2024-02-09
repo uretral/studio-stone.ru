@@ -11,13 +11,14 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
 
+
     public function handle(Category $menu, $slug) {
         return view($menu->view);
     }
 
     public function catalog($slug) {
         return view('catalog-item',[
-            'page' => Catalog::with('meta')->whereSlug($slug)->first()
+            'page' => Catalog::with('meta')->where('slug',$slug)->firstOrFail(),
         ]);
     }
 

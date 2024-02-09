@@ -12,7 +12,7 @@
                              data-motopress-static-file="static/static-title.php">
                             <section class="title-section">
 
-                                <h1 class="title-header">{{$page->title}}</h1>
+                                <h1 class="title-header">{{@$page->title}}</h1>
                                 <!-- BEGIN BREADCRUMBS-->
                                 <ul class="breadcrumb breadcrumb__t">
                                     <li>
@@ -22,14 +22,17 @@
                                     <a href="{{route('catalog')}}" title="Каталог камня" itemprop="url">Каталог камня</a>
                                     <li class="divider"></li>
                                     <li>
-                                        <span>{{$page->title}}</span>
+                                        <span>{{@$page->title}}</span>
                                     </li>
                                 </ul>                            <!-- END BREADCRUMBS -->
                             </section>
                         </div>
                     </div>
 
-                    <x-catalog-section-list :catalog="$page"/>
+                    @if($page->id)
+                        <x-catalog-section-list :section="$page->id"/>
+                    @endif
+
 
                     <div class="row">
                         <div class="span12" data-motopress-type="loop"
