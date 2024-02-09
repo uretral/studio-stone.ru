@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Traits\HasMeta;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,6 +18,14 @@ class Product extends Model
 
     protected $guarded = [];
     protected $with = ['color', 'country', 'material', 'previewImage', 'detailImage', 'gallery', 'similar'];
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope('order', function (Builder $builder) {
+            $builder->orderBy('sort');
+        });
+    }
 
     public function color(): HasOne
     {
@@ -55,6 +65,14 @@ class Product extends Model
     public function catalog(): BelongsTo
     {
         return $this->belongsTo(Catalog::class, 'parent_id', 'id');
+    }
+
+    public function rate(): Attribute
+    {
+        $rate = Entity::where('name','rate')->first();
+        return Attribute::make(
+            get: fn() => (int)((float)$rate->value ?? 0) * ((int)$this->attributes['price'] ?? 0)
+        );
     }
 
 }

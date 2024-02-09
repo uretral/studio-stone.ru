@@ -19,5 +19,6 @@ Route::group([
     $router->resource('products', \App\Admin\Controllers\ProductController::class);
     $router->resource('slider', \App\Admin\Controllers\TopSliderController::class);
     $router->resource('news', \App\Admin\Controllers\NewsController::class);
+    $router->resource('settings', \App\Admin\Controllers\SettingsController::class);
 
 });

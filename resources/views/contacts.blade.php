@@ -35,7 +35,10 @@
                                 <div class="row">
                                     <div class="span12">
                                         <div class="google-map">
-                                            {!! @$page->composite['map'] !!}
+                                            <iframe
+                                                src=" {!! @$page->composite['map'] !!}"
+                                                width="100%" height="300" frameborder="0" style="border:0"
+                                                allowfullscreen></iframe>
                                         </div>
                                     </div>
                                     <div class="span4">
