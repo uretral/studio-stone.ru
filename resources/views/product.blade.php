@@ -2,8 +2,6 @@
 
 @section('main')
 
-    {{--    @dump($page->toArray())--}}
-
     <div class="motopress-wrapper content-holder clearfix">
         <div class="container">
             <div class="row">
@@ -144,6 +142,67 @@
                                             $(this).html('УЗНАТЬ БОЛЬШЕ');
                                         });
 
+                                    });
+                                    $(document).ready(function () {
+                                        var img = [];
+                                        $('[rel="gallery"]').each(function (i, e) {
+                                            img[i] = $(e).attr('href');
+                                        });
+
+
+
+                                        $(document).on('click', 'a.arr', function () {
+
+                                            var imgLen = $(img).size();
+                                            var tgt = $('.tgt');
+                                            var tgtSrc = $(tgt).attr('src');
+                                            var I = img.indexOf(tgtSrc);
+                                            var t;
+
+                                            if ($(this).hasClass('right')) {
+                                                if (I == imgLen - 1) {
+                                                    t = 0
+                                                } else {
+                                                    t = I + 1;
+                                                }
+                                            } else {
+                                                if (I == 0) {
+                                                    t = imgLen - 1
+                                                } else {
+                                                    t = I - 1;
+                                                }
+                                            }
+                                            $('.nest').html('');
+
+                                            for (var k = 0, leng = img.length; k < leng; k++) {
+                                                if (k != t) {
+                                                    $('.nest').append('<a class="fancybox" rel="gallery" href="' + img[k] + '"></a>')
+                                                }
+
+                                            }
+
+                                            $('.tgt-a').attr('href', img[t]);
+
+                                            $(tgt).attr('src', img[t]);
+                                        });
+
+
+
+
+                                    });
+
+                                    function oHeight() {
+                                        var oHeight = $('.tgt-a').height();
+                                        var top = oHeight/2-25;
+                                        $('a.arr').css('top',top+'px');
+                                        console.log(top);
+                                    }
+
+                                    $(document).ready(function(){
+                                        oHeight()
+                                    });
+                                    $(document).resize(function(){
+                                        oHeight()
                                     });
                                 </script>
 

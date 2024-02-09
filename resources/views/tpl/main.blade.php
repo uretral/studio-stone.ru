@@ -65,7 +65,7 @@
             PARENT_URL = 'https://livedemo00.template-help.com/wordpress_48469/wp-content/themes/CherryFramework',
             CURRENT_THEME = 'theme48469'</script>
     <!--[if lt IE 8]>
-    <div style=' clear: both; text-align:center; position: relative;'>
+    <div style=' clear: both; text-align:center; position: relative;' >
         <a href="https://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img
             src="https://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt=""/></a>
     </div>

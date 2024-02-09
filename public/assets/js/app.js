@@ -7,7 +7,7 @@ import './jquery.flexslider-min.js';
 import './jplayer.playlist.min.js';
 import './jquery.jplayer.min.js';
 import './camera.min.js';
-// import './jquery.form.min.js';
+import './jquery.form.min.js';
 import './jquery.debouncedresize.js';
 import './jquery.ba-resize.min.js';
 import './jquery.isotope.js';
