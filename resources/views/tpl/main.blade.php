@@ -6,6 +6,13 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <title>{{@$page->meta->metatitle}}</title>
+    <meta name="description" content="{{@$page->meta->description}}">
+    {{-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> --}}
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="{{@$page->meta->keywords}}">
+    <link rel="icon" href="/favicon.ico">
+
     <link href="{{ asset('assets/css/bootstrap.css') }}" type="text/css" data-template-style="true" rel="stylesheet">
     <link href="{{ asset('assets/css/responsive.css') }}" type="text/css" data-template-style="true" rel="stylesheet">
     <link href="{{ asset('assets/css/camera.css') }}" type="text/css" data-template-style="true" rel="stylesheet">
@@ -39,12 +46,8 @@
     {{--    <link rel="manifest" href="{{ vite::asset('resources/img/favicon/site.webmanifest')}}">--}}
     {{--    <link rel="mask-icon" href="{{ vite::asset('resources/img/favicon/safari-pinned-tab.svg')}}" color="#5bbad5">--}}
 
-    <link rel="icon" href="/favicon.ico">
 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="robots" content="index, follow">
-    <meta name="keywords" content="{{@$page->meta->keywords}}">
-    <meta name="description" content="{{@$page->meta->description}}">
+
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120737947-1"></script>
@@ -111,8 +114,6 @@
             scaleFix();
         })
     </script>
-
-    <title>{{ config('app.name') }}: {{@$page->meta->metatitle}}</title>
 </head>
 <body class="{{@$page->bodyClass}}">
 

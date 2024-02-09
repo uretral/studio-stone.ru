@@ -219,6 +219,7 @@
 
 {{--@dump(route('product',['slug' => $page->section->slug, 'id' => $page->id]))--}}
 {{--                                @dump($page->similar)--}}
+
                                 <div class="row">
                                     <div class="span7">
                                         @if($page->similar->count())
