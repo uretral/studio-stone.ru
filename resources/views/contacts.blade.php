@@ -59,7 +59,7 @@
                                             <p><span style="font-size: 12pt;"></span></p>
                                         </address><!-- address (end) --></div>
                                     <div class="span8">
-                                        <h2>Связаться с нами</h2>
+{{--                                        <h2>Связаться с нами</h2>
                                         <div class="wpcf7" id="wpcf7-f208-p14-o1">
                                             <form action="javascript:;" name="callback" class="wpcf7-form"
                                                   novalidate="novalidate">
@@ -105,7 +105,7 @@
                                                 </p>
                                                 <div class="wpcf7-response-output wpcf7-display-none"></div>
                                             </form>
-                                        </div>
+                                        </div>--}}
                                     </div>
                                 </div><!-- .row (end) -->
                                 <div class="clear"></div>
