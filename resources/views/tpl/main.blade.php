@@ -39,7 +39,7 @@
     {{--    <link rel="manifest" href="{{ vite::asset('resources/img/favicon/site.webmanifest')}}">--}}
     {{--    <link rel="mask-icon" href="{{ vite::asset('resources/img/favicon/safari-pinned-tab.svg')}}" color="#5bbad5">--}}
 
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="/favicon.ico">
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="robots" content="index, follow">

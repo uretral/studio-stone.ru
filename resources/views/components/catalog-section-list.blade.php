@@ -115,14 +115,14 @@
                     <div class="portfolio_item_holder">
 
                         <figure class="thumbnail thumbnail__portfolio">
-                            <a href="{{route('catalog')}}/{{@$catalog->slug}}/{{@$product->id}}" class="image-wrap" title="Image Format">
+                            <a href="/{{$path}}/{{@$product->id}}" class="image-wrap" title="Image Format">
                                 <img src="{{asset("storage/".@$product->previewImage->path)}}" alt="Image Format"/>
                             </a>
                         </figure>
 
                         <div class="caption caption__portfolio">
                             <h3>
-                                <a href="{{route('catalog')}}/{{@$catalog->slug}}/{{@$product->id}}">
+                                <a href="/{{$path}}/{{@$product->id}}">
                                        {{@$product->title}}
                                 </a>
                             </h3>

@@ -15,6 +15,7 @@ class CatalogSectionList extends Component
 {
     public int $section;
     public  $products;
+    public string $path;
     const PAGE = 'PAGEN_1';
 
     /**
@@ -22,6 +23,7 @@ class CatalogSectionList extends Component
      */
     public function __construct(int $section)
     {
+        $this->path = request()->path();
         $this->section = $section;
         $this->products = Product::whereParentId($this->section)->paginate(
             perPage: 16,
